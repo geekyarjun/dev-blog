@@ -20,20 +20,20 @@ function main() {
 
 `;
 
-const SocialMedia = () => {
+export const SocialMedia = ({ color }) => {
   return (
     <>
       <div>
-        <FaGithub size={"2em"} color="#333333" />
+        <FaGithub size={"2em"} color={color} />
       </div>
       <div>
-        <FaTwitter size={"2em"} color="#333333" />
+        <FaTwitter size={"2em"} color={color} />
       </div>
       <div>
-        <FaLinkedin size={"2em"} color="#333333" />
+        <FaLinkedin size={"2em"} color={color} />
       </div>
       <div>
-        <FaYoutube size={"2em"} color="#333333" />
+        <FaYoutube size={"2em"} color={color} />
       </div>
     </>
   );
@@ -65,7 +65,7 @@ const Git = () => {
         </p>
       </div>
       <div className="flex flex-1 w-full gap-[20px] justify-center mb-4">
-        <SocialMedia />
+        <SocialMedia color="#333333" />
       </div>
     </div>
   );
@@ -107,49 +107,52 @@ const PostChip = () => (
   </div>
 );
 
+const SinglePost = () => (
+  <div className="post p-5 bg-white rounded-2xl gap-3 grid max-[809px]:grid-cols-1 grid-cols-2 max-[1200px]:auto-rows-[fit-content(1em)] min-[1200px]:h-[300px]">
+    <div className="flex-1 flex flex-col gap-[10px] items-start justify-center p-5 h-full">
+      <PostChip />
+      <h2 className="text-[28px] max-[809px]:text-[22px] font-bold leading-10 text-[#333333]">
+        How Can Designers Prepare For The Future?
+      </h2>
+      <p className="font-medium max-[809px]:text-sm opacity-40 -tracking-[0.2px]">
+        May 2, 2022
+      </p>
+    </div>
+    <div className="rounded-2xl h-full min-h-min max-[809px]:hidden">
+      <img
+        src="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096"
+        srcset="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=512 512w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=1024 1024w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=2048 2048w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096 4096w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg 5472w"
+        alt="post image"
+        sizes="calc((min(max(80vw, 200px), 1200px) - 40px) / 2)"
+        style={{
+          pointerEvents: "none",
+          userSelect: "none",
+          display: "block",
+          width: "100%",
+          height: "100%",
+          borderRadius: "inherit",
+          objectPosition: "center center",
+          objectFit: "cover",
+          imageRendering: "auto",
+        }}
+      />
+    </div>
+  </div>
+);
+
 const Main = () => {
   return (
-    <div className="flex flex-col gap-[60px] mt-[60px] min-[769px]:w-4/5 w-full mx-auto min-[769px]:max-w-[1200px] max-[768px]:px-8 px-0">
-      <div className="grid grid-cols-2 grid-rows-1 gap-x-[30px] max-[768px]:grid-cols-1 max-[768px]:gap-y-[30px]">
+    <div className="flex flex-col gap-[60px] min-[810px]:w-4/5 w-full mx-auto min-[810px]:max-w-[1200px] max-[809px]:px-8 px-0">
+      <div className="grid grid-cols-2 grid-rows-1 max-[809px]:grid-cols-1 gap-y-[30px] gap-x-[30px]">
         <Git />
         <Code />
       </div>
       <h1 className="text-6xl font-black text-center text-[#333333]">
         Dev Blog
       </h1>
-      <div>
-        <div className="post p-5 bg-white rounded-2xl gap-3 grid grid-cols-2 auto-rows-[fit-content(1em)]">
-          <div className="flex-1 flex flex-col gap-[10px] items-start justify-center p-5 h-min">
-            <PostChip />
-            <h2 className="text-[28px] font-bold leading-10 text-[#333333]">
-              How Can Designers Prepare For The Future?
-            </h2>
-            <p className="font-medium opacity-40 -tracking-[0.2px]">
-              May 2, 2022
-            </p>
-          </div>
-          <div className="rounded-2xl h-full min-h-min">
-            <img
-              src="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096"
-              srcset="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=512 512w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=1024 1024w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=2048 2048w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096 4096w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg 5472w"
-              alt="post image"
-              sizes="calc((min(max(80vw, 200px), 1200px) - 40px) / 2)"
-              style={{
-                pointerEvents: "none",
-                userSelect: "none",
-                display: "block",
-                width: "100%",
-                height: "100%",
-                borderRadius: "inherit",
-                objectPosition: "center center",
-                objectFit: "cover",
-                imageRendering: "auto",
-              }}
-            />
-          </div>
-        </div>
+      <div className="flex flex-col gap-[30px]">
+        <SinglePost />
       </div>
-      <div>Footer</div>
     </div>
   );
 };

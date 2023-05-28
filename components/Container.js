@@ -64,7 +64,7 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
         )}
       </Head>
       <div
-        className={`wrapper ${
+        className={`gap-[60px] wrapper ${
           BLOG.font === "serif" ? "font-serif" : "font-sans"
         }`}
       >
