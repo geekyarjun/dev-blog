@@ -28,7 +28,7 @@ export default function Blog({ postsToShow, page, showNext }) {
 
   return (
     <Container title={title} description={description}>
-      <Main />
+      <Main postsToShow={postsToShow} />
       {/* {postsToShow.map((post) => (
         <BlogPost key={post.id} post={post} />
       ))}
