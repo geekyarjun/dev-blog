@@ -19,6 +19,12 @@ const BLOG = {
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateURL: "https://og-image-craigary.vercel.app", // The link to generate OG image, don't end with a slash
   socialLink: "https://twitter.com/craigaryhart",
+  socialMediaLinks: {
+    twitter: "https://twitter.com/geekyarjun_",
+    github: "https://github.com/geekyarjun",
+    linkedin: "https://www.linkedin.com/in/geekyarjunshrivastava",
+    youtube: "https://www.youtube.com/channel/UCXfiDKQEugNlpQlgWs1Xj7g",
+  },
   seo: {
     keywords: ["Blog", "Website", "Notion"],
     googleSiteVerification: "", // Remove the value or replace it with your own google site verification code

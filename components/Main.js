@@ -3,6 +3,8 @@ import Image from "next/image";
 import { marked } from "marked";
 import hljs from "highlight.js";
 import { FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { useConfig } from "@/lib/config";
+
 const myDp =
   "/geekyarjun.jpg" ||
   "/New Project.png" ||
@@ -21,19 +23,28 @@ function main() {
 `;
 
 export const SocialMedia = ({ color }) => {
+  const { socialMediaLinks } = useConfig();
   return (
     <>
       <div>
-        <FaGithub size={"2em"} color={color} />
+        <a href={socialMediaLinks.github} target="_blank">
+          <FaGithub size={"2em"} color={color} />
+        </a>
       </div>
       <div>
-        <FaTwitter size={"2em"} color={color} />
+        <a href={socialMediaLinks.twitter} target="_blank">
+          <FaTwitter size={"2em"} color={color} />
+        </a>
       </div>
       <div>
-        <FaLinkedin size={"2em"} color={color} />
+        <a href={socialMediaLinks.linkedin} target="_blank">
+          <FaLinkedin size={"2em"} color={color} />
+        </a>
       </div>
       <div>
-        <FaYoutube size={"2em"} color={color} />
+        <a href={socialMediaLinks.youtube} target="_blank">
+          <FaYoutube size={"2em"} color={color} />
+        </a>
       </div>
     </>
   );
