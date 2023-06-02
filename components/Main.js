@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { marked } from "marked";
 import hljs from "highlight.js";
 import { FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { useConfig } from "@/lib/config";
+import FormattedDate from "./FormattedDate";
 
 const myDp =
   "/geekyarjun.jpg" ||
@@ -118,38 +120,44 @@ const PostChip = () => (
   </div>
 );
 
-const SinglePost = ({ post }) => (
-  <div className="post p-5 bg-white rounded-2xl gap-3 grid max-[809px]:grid-cols-1 grid-cols-2 max-[1200px]:auto-rows-[fit-content(1em)] min-[1200px]:h-[300px]">
-    <div className="flex-1 flex flex-col gap-[10px] items-start justify-center p-5 h-full">
-      <PostChip />
-      <h2 className="text-[28px] max-[809px]:text-[22px] font-bold leading-10 text-[#333333]">
-        {post.title}
-      </h2>
-      <p className="font-medium max-[809px]:text-sm opacity-40 -tracking-[0.2px]">
-        May 2, 2022
-      </p>
-    </div>
-    <div className="rounded-2xl h-full min-h-min max-[809px]:hidden">
-      <img
-        src={post.heroImage}
-        // srcset="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=512 512w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=1024 1024w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=2048 2048w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096 4096w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg 5472w"
-        alt="post image"
-        sizes="calc((min(max(80vw, 200px), 1200px) - 40px) / 2)"
-        style={{
-          pointerEvents: "none",
-          userSelect: "none",
-          display: "block",
-          width: "100%",
-          height: "100%",
-          borderRadius: "inherit",
-          objectPosition: "center center",
-          objectFit: "cover",
-          imageRendering: "auto",
-        }}
-      />
-    </div>
-  </div>
-);
+const SinglePost = ({ post }) => {
+  const BLOG = useConfig();
+
+  return (
+    <Link href={`${BLOG.path}/${post.slug}`}>
+      <article className="post p-5 bg-white rounded-2xl gap-3 grid max-[809px]:grid-cols-1 grid-cols-2 max-[1200px]:auto-rows-[fit-content(1em)] min-[1200px]:h-[300px]">
+        <div className="flex-1 flex flex-col gap-[10px] items-start justify-center p-5 h-full">
+          <PostChip />
+          <h2 className="text-[28px] max-[809px]:text-[22px] font-bold leading-10 text-[#333333]">
+            {post.title}
+          </h2>
+          <p className="font-medium max-[809px]:text-sm opacity-40 -tracking-[0.2px]">
+            <FormattedDate date={post.date} />
+          </p>
+        </div>
+        <div className="rounded-2xl h-full min-h-min max-[809px]:hidden">
+          <img
+            src={post.heroImage}
+            // srcset="https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=512 512w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=1024 1024w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=2048 2048w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg?scale-down-to=4096 4096w, https://framerusercontent.com/images/AuR49xw5lxYxriSpY6iZnz8ewV8.jpg 5472w"
+            alt="post image"
+            sizes="calc((min(max(80vw, 200px), 1200px) - 40px) / 2)"
+            style={{
+              pointerEvents: "none",
+              userSelect: "none",
+              display: "block",
+              width: "100%",
+              height: "100%",
+              borderRadius: "inherit",
+              objectPosition: "center center",
+              objectFit: "cover",
+              imageRendering: "auto",
+            }}
+          />
+        </div>
+      </article>
+    </Link>
+  );
+};
 
 const Main = ({ postsToShow }) => {
   console.log("ostsToShow", postsToShow);
