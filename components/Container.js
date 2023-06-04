@@ -1,14 +1,16 @@
+import { useRouter } from "next/router";
+import cn from "classnames";
 import Header from "@/components/Header";
 import Header2 from "@/components/Header2";
 import Footer from "@/components/Footer";
 import { useConfig } from "@/lib/config";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import cn from "classnames";
 // import BlogPost from './BlogPost'
 
 const Container = ({ children, layout, fullWidth, ...customMeta }) => {
   const BLOG = useConfig();
+  const { query } = useRouter();
 
   const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link;
   const meta = {
@@ -73,7 +75,19 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
           navBarTitle={layout === "blog" ? meta.title : null}
           fullWidth={fullWidth}
         /> */}
-        <main className="my-0 mx-auto w-full">{children}</main>
+        <main className="my-0 mx-auto w-full">
+          <div
+            className={cn(
+              "flex flex-col gap-[60px] min-[810px]:w-4/5 w-full mx-auto max-[809px]:px-8 px-0",
+              {
+                "min-[810px]:max-w-[1200px]": !query.slug,
+                "min-[810px]:max-w-[720px]": query.slug,
+              }
+            )}
+          >
+            {children}
+          </div>
+        </main>
         <Footer fullWidth={fullWidth} />
       </div>
     </div>
