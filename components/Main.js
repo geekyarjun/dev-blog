@@ -108,7 +108,7 @@ const Code = () => {
   );
 };
 
-const PostChip = () => (
+export const PostChip = () => (
   <div
     className="bg-[#85f] rounded-md px-[10px] py-[5px]"
     style={{
@@ -162,7 +162,7 @@ const SinglePost = ({ post }) => {
 const Main = ({ postsToShow }) => {
   console.log("ostsToShow", postsToShow);
   return (
-    <div className="flex flex-col gap-[60px] min-[810px]:w-4/5 w-full mx-auto min-[810px]:max-w-[1200px] max-[809px]:px-8 px-0">
+    <>
       <div className="grid grid-cols-2 grid-rows-1 max-[809px]:grid-cols-1 gap-y-[30px] gap-x-[30px]">
         <Git />
         <Code />
@@ -175,7 +175,7 @@ const Main = ({ postsToShow }) => {
           <SinglePost key={post.id} post={post} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

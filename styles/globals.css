@@ -31,7 +31,17 @@ body::-webkit-scrollbar-thumb {
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: rgb(245, 245, 245);
+}
+
+.notion-text {
+  color: #333333;
+  font-size: 18px !important;
+  line-height: 36px !important;
+}
+
+.notion-h2 {
+  color: #333333;
+  font-size: 28px;
 }
 
 .sticky-nav {

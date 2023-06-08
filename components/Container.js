@@ -66,9 +66,15 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
         )}
       </Head>
       <div
-        className={`gap-[60px] wrapper ${
-          BLOG.font === "serif" ? "font-serif" : "font-sans"
-        }`}
+        className={cn(
+          `gap-[60px] wrapper ${
+            BLOG.font === "serif" ? "font-serif" : "font-sans"
+          }`,
+          {
+            "bg-[#ffffff]": query.slug,
+            "bg-[#f5f5f5]": !query.slug,
+          }
+        )}
       >
         <Header2 blogTitle="Arjun's Blog" />
         {/* <Header
