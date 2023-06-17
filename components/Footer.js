@@ -18,7 +18,7 @@ const Footer = ({ fullWidth }) => {
         <SocialMedia color="#ffffff" />
       </div>
       <div>
-        <p className="font-bold">Made with ❤️ in Earth</p>
+        <p className="font-bold">Made with ❤️ on Earth</p>
       </div>
     </div>
   );
